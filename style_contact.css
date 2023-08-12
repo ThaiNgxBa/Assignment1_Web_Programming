@@ -1,0 +1,475 @@
+/* RMIT University Vietnam Ha Noi Campus
+Course: COSC2430 Web Programming
+Semester: 2023B
+Assessment: Assignment 1
+Author: Nguyen Ba Lam Quang Thai
+ID: S3975154 - 11/11/2004
+Acknowledgement: Acknowledge the resources that you use here. */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato" sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+}
+
+.header-text {
+  height: 95vh;
+  background-image: url(./images/background.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo:hover {
+  animation-name: moveInRight;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  animation-name: moveInRight;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom .6s ease-out 0.75s;
+  animation-fill-mode: backwards;
+}
+
+header {
+  position: fixed;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  z-index: 3000;
+}
+
+.logo-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  padding-left: 40px;
+}
+
+.navigation_button {
+  opacity: 0;
+}
+
+.navigation_nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation_list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  list-style: none;
+  white-space: nowrap;
+  padding-right: 5%;
+}
+
+.navigation_list,
+.navigation_item a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+}
+
+.navigation_link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  background-color: black;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+  transform: scaleX(0);
+}
+
+.navigation_link:hover::after {
+  transform: scaleX(1);
+}
+
+.navigation_checkbox {
+  display: none;
+}
+
+/* Form */
+
+main {
+    padding: 0 5%;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    width: 100%;
+    color: black
+}
+
+.form-title {
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.container {
+    background-color: rgb(116, 115, 115);
+    font-size: 18px;
+    padding: 5% 10%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.form-row {
+    padding: 30px 0 0 30px;
+}
+
+input[type="text"],
+select,
+textarea {
+    font-family: 'Playfair Display', serif;
+    border: 0px;
+    color: black;
+    display: block;
+    margin: 10px auto;
+    padding: 1.2%;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+select {
+    display: inline-block;
+    width: auto;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    font-family: 'Playfair Display', serif;
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    border: 0px;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: lightgray;
+    transition: .2s ease-out;
+}
+
+/* Video */
+
+.video-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid lightgray;
+    padding: 10px;
+}
+
+.video-container .content p {
+    font-size: 20px;
+    padding: 5%;
+}
+
+/* Video */
+
+.video-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid lightgray;
+    padding: 10px;
+  }
+  
+  .video-container .content p {
+    font-size: 20px;
+    padding: 5%;
+  }
+  
+  /* Footer */
+  
+  footer {
+    margin-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+  }
+  
+  .footer-logo img {
+    width: 300px;
+    height: auto;
+  }
+  
+  .footer-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+    width: 70%;
+  }
+  
+  .footer-navigation a {
+    width: fit-content;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .footer-social {
+    margin-top: 20px;
+    width: 70%;
+    font-size: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+  }
+  
+  .footer-social a {
+    color: black;
+  }
+  
+  .footer-social a:hover {
+    transition: .3s ease-in-out;
+    transform: translateY(-5px);
+  }
+
+/* Footer Css End */
+@media (max-width:768px) {
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row label {
+        flex: none;
+        margin-bottom: 5px;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        font-size: 16px;
+        display: block;
+        padding: 7px 17px;
+        margin-bottom: 10px;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        transform: translateX(5px);
+    }
+
+    .left .form-title {
+        font-size: 5vw;
+    }
+
+    .left {
+        width: 100%;
+        max-width: 80%;
+    }
+
+    .right {
+        width: 100%;
+    }
+}
+
+@media (max-width:992px) {
+    header {
+      flex-direction: column;
+    }
+  
+    .navigation_button {
+      position: absolute;
+      opacity: 1;
+      font-size: 35px;
+      right: 5%;
+    }
+  
+    .navigation_list {
+      visibility: hidden;
+      opacity: 0;
+      flex-direction: column;
+      height: 0;
+      gap: 50px;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 20px;
+      transition: all .3s;
+    }
+  
+    .navigation_checkbox:checked~.navigation_list {
+      visibility: visible;
+      opacity: 1;
+      height: auto;
+    }
+    .video-container {
+        flex-direction: column-reverse;
+      }
+  }
